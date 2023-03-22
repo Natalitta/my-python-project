@@ -2,6 +2,7 @@ from random import randint
 
 scores = {"robot": 0, "user": 0}
 
+
 class Board:
     """
     Creates the board, its size, type (robot or user's board).
@@ -25,12 +26,12 @@ class Board:
         self.board[x][y] = "x"
 
         if (x, y) in self.ships:
-            self.board[x][y] ="*"
+            self.board[x][y] = "*"
             return "yes"
         else:
             return "no"
 
-        
+
     def add_ship(self, x, y, type="robot"):
         if len(self.ships) >= self.ships_number:
             print("Sorry, no more ships can be added")
@@ -44,33 +45,50 @@ def random(size):
     """
     It helps to return a random number (0 - size)
     """
-    return radint (0, size - 1)
+    return randint(0, size - 1)
 
 
-def validate(x, y, board):
+# def validate_coords(x, y, board):
 
 
-def populate_board(board):
+# def set_board(board):
 
 
-def make_guess(board):
+# def make_guess(board):
 
 
-def play_game(robot_board, user_board):
+# def play_game(robot_board, user_board):
 
 
-def new_game:
+def new_game():
     """
-    It begins the game from the start. 
+    It begins the game from the start.
     New boards, zero score.
     """
     size = 6
     ships_number = 5
     scores["robot"] = 0
     scores["user"] = 0
-    print("-" * 35)
+    print("." * 40)
+    print("." * 40)
     print("Welcome to the Battleships game!")
     print(f"Your board size: {size}. You have {ships_number} ships.")
-    print("Coordinates start in the left top corner (row: 0, column: 0)")
+    print("Coordinates start in the left top corner.")
+    print("e.g. row: 0, column: 0")
+    print("." * 40)
+    print("." * 40)
+    user_name = input("What's your name? \n")
+
+    robot_board = Board(size, ships_number, "Robot", type="robot")
+    user_board = Board(size, ships_number, user_name, type="user")
+
+    for _ in range(ships_number):
+        set_board(user_board)
+        set_board(robot_board)
+
+    play_game(robot_board, user_board)
+
+
+new_game()
 
 
