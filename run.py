@@ -48,7 +48,26 @@ def random(size):
     return randint(0, size - 1)
 
 
-# def validate_coords(x, y, board):
+def validate_coords(x, y, board):
+    """
+    It validates coordinates are numbers and 
+    so that they fit the size of the board. 
+    """
+    x = input("Please, type a row")
+    if x != int:
+        print("Oops, you should type a number")
+    elif x > size:
+        print(f"Sorry, you cannot choose more than {size}")
+    else:
+        return x
+
+    y = input("Please, type a column")
+    if y != int:
+        print("Oops, you should type a number")
+    elif y > size:
+        print(f"Sorry, you cannot choose more than {size}")
+    else:
+        return y
 
 
 # def set_board(board):
